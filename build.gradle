@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.cdn.auth'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '18'
+sourceCompatibility = '16'
 
 configurations {
     compileOnly {
@@ -25,4 +25,5 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'com.google.guava:guava:31.1-jre'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
 }

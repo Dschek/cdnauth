@@ -19,7 +19,7 @@ public class Auth {
     @Autowired
     private TokenService tokenService;
 
-    @GetMapping("/*")
+    @GetMapping("/**")
     public ResponseEntity verification(@RequestBody UserRequest userRequest) {
         return getStatus(tokenService.validateToken(userRequest)? HttpStatus.OK: HttpStatus.UNAUTHORIZED);
     }
