@@ -2,7 +2,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -34,5 +34,6 @@ jobs:
       run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
     - name: Publish image
       env:
-        IMAGE_NAME: save
+        IMAGE_NAME: cdnauth
       run: docker push "${{ steps.global_env.outputs.DOCKERHUB_IMAGE_NAME }}"
+
