@@ -6,3 +6,10 @@ services:
     image: "docker.pkg.github.com/dschek/cdnauth/cdnauth:latest"
     ports:
       - "9301:8080"
+    networks:
+      - cdnauth
+      - mysql
+networks:
+  cdnauth: {}
+  mysql:
+    external: true
