@@ -3,6 +3,6 @@ version: '3.8'
 services:
   web:
     container_name: cdnsave
-    image: "docker.pkg.github.com/dschek/save/save:latest"
+    image: "docker.pkg.github.com/dschek/auth/auth:latest"
     ports:
-      - "9001:8080"
+      - "9301:8080"

@@ -25,8 +25,8 @@ jobs:
     - name: set global env
       id: global_env
       run: |
-        echo "::set-output name=IMAGE_NAME::save"
-        echo "::set-output name=DOCKERHUB_IMAGE_NAME::docker.pkg.github.com/dschek/save/save"
+        echo "::set-output name=IMAGE_NAME::auth"
+        echo "::set-output name=DOCKERHUB_IMAGE_NAME::docker.pkg.github.com/dschek/auth/auth"
     - name: Build and tag image
       run: |
         docker build -t "${{ steps.global_env.outputs.DOCKERHUB_IMAGE_NAME }}:latest" -t "${{ steps.global_env.outputs.DOCKERHUB_IMAGE_NAME }}:${GITHUB_SHA::8}" .
@@ -34,6 +34,6 @@ jobs:
       run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p ${{secrets.GITHUB_TOKEN}}
     - name: Publish image
       env:
-        IMAGE_NAME: save
+        IMAGE_NAME: auth
       run: docker push "${{ steps.global_env.outputs.DOCKERHUB_IMAGE_NAME }}"
 
