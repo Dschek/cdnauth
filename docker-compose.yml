@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    container_name: cdnsave
+    container_name: cdnauth
     image: "docker.pkg.github.com/dschek/cdnauth/cdnauth:latest"
     ports:
       - "9301:8080"
