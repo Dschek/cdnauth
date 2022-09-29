@@ -1,8 +1,8 @@
 FROM openjdk:16-jdk-alpine
 
 WORKDIR /home/auth
-COPY ./build/libs/save-0.0.1-SNAPSHOT-plain.jar save.jar
+COPY ./build/libs/auth-0.0.1-SNAPSHOT-plain.jar auth.jar
 
-EXPOSE 8080
+EXPOSE 9301
 
-CMD java -jar save.jar
+CMD java -jar auth.jar
