@@ -1,4 +1,4 @@
-FROM openjdk:16-jdk-alpine
+FROM openjdk:18-jdk-alpine
 
 WORKDIR /home/auth
 COPY ./build/libs/auth-0.0.1-SNAPSHOT.jar auth.jar
