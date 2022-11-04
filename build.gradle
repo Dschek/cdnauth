@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.cdn.auth'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+sourceCompatibility = '18'
 
 configurations {
     compileOnly {
@@ -15,6 +15,7 @@ configurations {
 }
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
@@ -26,4 +27,5 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'com.google.guava:guava:31.1-jre'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
+    implementation group: 'org.hibernate', name: 'hibernate-hikaricp', version: '5.4.19.Final'
 }

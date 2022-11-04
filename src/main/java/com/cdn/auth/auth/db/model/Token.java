@@ -19,8 +19,9 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @Column(name = "token")
     private String token;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_token")
+    @JoinColumn(name = "user")
     private User user;
 }
