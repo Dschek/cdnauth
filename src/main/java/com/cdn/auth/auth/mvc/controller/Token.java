@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.cdn.auth.auth.mvc.converter.TokenConverter.toResponse;
 
 @RestController
-@RequestMapping("/${api.path}/token")
+@RequestMapping("/token")
 public class Token {
 
     @Autowired
