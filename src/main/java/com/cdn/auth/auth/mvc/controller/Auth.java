@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.cdn.auth.auth.mvc.converter.MessageConverter.getStatus;
 
 @RestController
-@RequestMapping("/${auth.path}")
+@RequestMapping("/")
 public class Auth {
 
     @Autowired
