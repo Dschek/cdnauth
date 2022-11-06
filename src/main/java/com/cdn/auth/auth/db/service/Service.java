@@ -4,23 +4,21 @@ import com.cdn.auth.auth.db.model.Token;
 import com.cdn.auth.auth.db.model.User;
 import com.cdn.auth.auth.db.repo.TokenDB;
 import com.cdn.auth.auth.db.repo.UserDB;
-import com.cdn.auth.auth.mvc.model.TokenResponse;
 import com.cdn.auth.auth.mvc.model.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 import com.google.common.hash.Hashing;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-@Service
-public class UserService {
+@org.springframework.stereotype.Service
+public class Service {
     private final UserDB userDB;
     private final TokenDB tokenDB;
 
     @Autowired
-    public UserService(UserDB userDB, TokenDB tokenDB) {
+    public Service(UserDB userDB, TokenDB tokenDB) {
         this.userDB = userDB;
         this.tokenDB = tokenDB;
     }
@@ -67,6 +65,13 @@ public class UserService {
                 .limit(size)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
+    }
+    public boolean validateToken(String token, String login){
+        User user = userDB.findUserByLoginAndToken(login, token);
+        if(user !=null){
+            return true;
+        }
+        return false;
     }
 
 }
